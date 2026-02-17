@@ -1,16 +1,171 @@
-# React + Vite
+📌 Task Management Dashboard (Mini Trello Clone)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Task Management Dashboard built using React, Vite, Tailwind CSS, and Zustand.
+This project simulates a Trello-like board with authentication, task management, and state persistence.
 
-Currently, two official plugins are available:
+Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React (Hooks)
 
-## React Compiler
+Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Tailwind CSS
 
-## Expanding the ESLint configuration
+Zustand (State Management + Persistence)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Axios / Fetch (API Calls)
+
+TypeScript
+
+src/
+ ├── components/      # Reusable UI components
+ ├── pages/           # Login & Dashboard pages
+ ├── store/           # Zustand global store
+ ├── hooks/           # Custom hooks
+ ├── services/        # API service layer
+ ├── layouts/         # Sidebar + Navbar layout
+
+
+🔐 Authentication (Mocked)
+
+Simple login page
+
+Accepts any email/password
+
+Stores user data in Zustand store
+
+Login state persisted using middleware (localStorage)
+
+Redirects to dashboard after login
+
+Logout clears persisted state
+
+📊 Dashboard Features
+🗂 Task Columns
+
+Tasks are displayed in 3 columns:
+
+Todo
+
+In Progress
+
+Completed
+
+Task status logic:
+
+completed === false → Todo
+
+completed === true → Completed
+
+Manual state → In Progress
+
+🌐 API Integration
+
+Tasks are fetched from:
+
+https://jsonplaceholder.typicode.com/todos
+
+
+Includes:
+
+Loading state
+
+Error handling
+
+Empty state UI
+
+✨ Features Implemented
+➕ Add Task
+
+Custom reusable modal
+
+Title + Description
+
+Stored in Zustand
+
+✏️ Edit Task
+
+Modal-based editing
+
+Updates Zustand state
+
+❌ Delete Task
+🔄 Toggle Status
+
+Move tasks between columns
+🔍 Search & Filter
+
+Search tasks by title
+
+Filter by status
+
+Debounced input (optional improvement)
+
+🧠 State Management (Zustand)
+
+Global Store Contains:
+
+user
+
+tasks
+
+setUser()
+
+logout()
+
+addTask()
+
+updateTask()
+
+deleteTask()
+
+Persistence handled using Zustand middleware.
+
+📱 UI & UX
+
+Fully responsive (Mobile + Desktop)
+
+Clean Tailwind utility styling
+
+Loading indicators
+
+Error states
+
+Empty states
+
+Smooth layout transitions
+
+🏗 Architecture Overview
+
+UI components are separated from business logic
+
+API logic isolated inside services/
+
+Global state handled via Zustand
+
+Layout components reusable across pages
+
+Clear separation of concerns
+API → Zustand Store → UI Components
+
+
+⚖️ Tradeoffs Made
+
+Used mocked authentication instead of backend integration
+
+"In Progress" status handled locally due to API limitations
+
+Drag & Drop not implemented due to time constraints
+
+🚀 Future Improvements
+
+Drag & Drop (dnd-kit)
+
+Backend integration with real authentication
+
+Role-based task access
+
+
+Performance optimizations for large datasets
+
+Dark mode toggle
