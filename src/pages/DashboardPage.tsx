@@ -61,9 +61,7 @@ const DashboardPage = () => {
     (t) => t.status === "completed"
   );
 
-  /* ----------------------------
-     PROFESSIONAL LOADING PATTERN
-  ---------------------------- */
+// loading
 
  if (loading) {
   return (
